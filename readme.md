@@ -1,0 +1,2 @@
+-created gambling plinko web platform
+-clone the repo
