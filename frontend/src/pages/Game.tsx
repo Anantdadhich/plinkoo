@@ -25,24 +25,27 @@ const Game = () => {
 
 
   return (
-   <div  className=" flex items-center justify-center bg-gradient-to-b from-gray-900 to-black p-4">
-      <div className="relative">
+ <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-800 via-gray-900 to-black p-8">
+      <div className="relative flex flex-col items-center">
         <canvas
-          ref={canvasRef} height="800" width="800"
-          className="border-4 border-gray-300 rounded-lg shadow-lg"
+          ref={canvasRef}
+          height="800"
+          width="800"
+          className="border-4 border-gray-500 rounded-xl shadow-2xl"
         ></canvas>
-        <div className="absolute top-12 right-4">
-          <Button className='bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-lg' onClick={async()=>{
-        const response=await axios.post(`${baseURL}/post`,
-          {data:1}
-        )
-        if(ballmanager){
-          ballmanager.addBall(response.data.point);
-        }
-       }}>
-       Add ball
-       </Button>
 
+        <div className="absolute top-6 right-6">
+          <Button
+            className="bg-gradient-to-r from-purple-500 to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+            onClick={async () => {
+              const response = await axios.post(`${baseURL}/post`, { data: 1 });
+              if (ballmanager) {
+                ballmanager.addBall(response.data.point);
+              }
+            }}
+          >
+            Add Ball
+          </Button>
         </div>
       </div>
     </div>

@@ -62,21 +62,24 @@ const Simulation = () => {
   },[canvasRef])
   return (
    
-      <div className="w-full h-screen flex flex-col lg:flex-row items-center justify-between p-4 overflow-hidden  bg-gradient-to-b from-gray-900 to-black">
-        <div className="w-full lg:w-1/3 h-1/2 lg:h-full overflow-auto bg-gray-800 bg-opacity-50 rounded-lg shadow-lg p-4 m-2">
-          <pre className="text-xs text-gray-300 font-mono">
-            {JSON.stringify(outputs, null, 2)}
-          </pre> 
-        </div>
-        <div className=" flex items-center justify-center">
-          <canvas
-            ref={canvasRef}
-            height="800"
-            width="800"
-            className="border-4 border-purple-500 rounded-lg shadow-lg max-w-full max-h-full"
-          ></canvas>
-        </div>
+      <div className="min-h-screen w-full flex flex-col lg:flex-row items-center justify-between p-6 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
+      {/* Output Section */}
+      <div className="w-full lg:w-1/3 h-1/2 lg:h-full overflow-auto bg-gray-800 bg-opacity-60 rounded-xl shadow-xl p-4 m-4">
+        <pre className="text-sm text-gray-300 font-mono">
+          {JSON.stringify(outputs, null, 2)}
+        </pre>
       </div>
+
+      {/* Canvas Section */}
+      <div className="flex items-center justify-center flex-grow">
+        <canvas
+          ref={canvasRef}
+          height="800"
+          width="800"
+          className="border-4 border-purple-500 rounded-xl shadow-2xl max-w-full max-h-full"
+        ></canvas>
+      </div>
+    </div>
  
   )
 }
